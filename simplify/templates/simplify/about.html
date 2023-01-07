@@ -1,0 +1,49 @@
+{% extends "simplify/template.html" %}
+{% block body %}
+
+<div class="jumbotron text-white text-center">
+    <h1 class="display-4" style="top:90px;">About Simplify!</h1>
+    <p class="lead">"A summary application"</p>
+    <p font-size="20px">Life is busy. Sometimes you can't read an entire article or finish an assigned reading. 
+        With Simplify By SI, you can identify the most important sentences in any given text. 
+        Paste a url (or the text itself), select your desired number of simplified sentences, and click "Simplify!</p>
+    <hr class="my-4">
+    {% load static %}
+
+    Simplify summarizes and extracts text using
+    <button class= "btn btn-primary" onclick="displayText()">Cosine Similarity</button>
+    and
+    <button class= "btn btn-primary" onclick="bs()">Beautiful Soup</button>
+</div>
+
+<div class="container text-center " style="padding:20px;">
+    <text class='text-center text-white' id="blankspace" >
+
+    </text>
+</div>
+
+<div class="container text-center " style="padding:20px;">
+    <text class='text-center text-white' id="bs" >
+
+    </text>
+</div>
+
+
+<div class = "container">
+    <div class="text-white text-center" style = "padding:20px;">
+        But cosine similarity is just a beginning.
+            <button class="btn btn-primary" onclick="getTeam()"> Our Team</button> 
+        is working on building a more advanced simplification tool that should be availible in April 2024.
+        
+    </div>
+
+    <div class="container text-center" style = "padding:20px;">
+        <text class="text-center text-white" id = "secondbs"> </text>
+    </div>
+
+</div>
+
+
+
+
+{% endblock %}

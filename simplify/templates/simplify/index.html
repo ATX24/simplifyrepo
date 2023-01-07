@@ -1,0 +1,54 @@
+{% extends "simplify/template.html" %}
+{% block body %}
+
+
+    <div class="parent container ">    
+        <div class = "d-flex justify-content-center">
+            <div class="text-center"> 
+                <div class = "text-white h-50">
+                  <!-- I used this div to center the text input -->
+                </div>
+
+                <h1 class = "text-white">Welcome to Simplify, A Summary Application</h1>
+                    <div class="text-primary">
+                        Enter your website URL and desired number of sentences
+                    </div>
+                <div>
+                    <form action="{% url 'simplify:index' %}" method="post">
+                        {% csrf_token %}
+                        {{form}}
+                        <input type="submit" value='Simplify!' name = "form1">       
+                    </form>
+                </div>
+    
+                <div class = "text-warning">
+                    {{message}}
+                </div>
+    
+                <div class = "text-light">
+                    <div class = "text-primary">
+                        Or enter your text directly
+                    </div>
+                    
+                    <form action="{% url 'simplify:index' %}" method="post" class="test">
+                        {% csrf_token %}
+                        {{form2}}
+                        <input type="submit" value='Simplify!' name = "form2">              
+                    </form>
+
+                    <div style="padding:20px;">
+                        <a href="{% url 'simplify:about'%}"> Brief Explanation </a>
+                    </div>
+
+                    
+
+              </div>
+        </div> 
+    </div>
+
+    
+    
+
+   
+
+{% endblock %}

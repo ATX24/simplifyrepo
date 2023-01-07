@@ -1,0 +1,28 @@
+{% extends "simplify/template.html" %}
+{% block body %}
+<div class = "text-white h-25">
+    <!-- Used this to center content-->
+</div>
+
+<div class = "container text-center">
+    <div class = "text-white">
+        <h1 class = "text-white"> Here's a sample of your url or text (shortened): </h1>
+        {{full}}
+        <h1 class = "text-white"> Here's your simplified text: </h1>
+        {{ans}}
+    </div>
+
+    <div>
+        <a href=> Log in to save your simplified text! </a>
+    </div>
+    
+    <div>
+        <a href="{% url 'simplify:index'%}"> Back to full main page </a>
+    </div>
+</div>
+
+
+    
+    
+
+{% endblock %}

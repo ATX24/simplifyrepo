@@ -1,0 +1,112 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Simplify by SI</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'simplify/style.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWR7FDNVND"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-TWR7FDNVND');
+        </script>
+        <script>
+
+          function displayText() {
+            var cos = "In data analysis, cosine similarity is a measure of similarity between two sequences of numbers. For more info, check out the wiki page: https://en.wikipedia.org/wiki/Cosine_similarity (You can use simplify to shorten the article if it's too long)"
+            var space = document.getElementById('blankspace');
+            if (space.innerHTML == cos) {
+                space.innerHTML = "";
+            }
+            else {
+                space.innerHTML = "";
+                space.innerHTML = cos;
+            }
+          }
+
+          function bs() {
+            var bs = "Beautiful Soup is a Python package for parsing HTML and XML documents. It creates a parse tree for parsed pages that can be used to extract data from HTML, which is useful for web scraping. Check out the docs for more details: https://beautiful-soup-4.readthedocs.io/en/latest/"
+            var space = document.getElementById('blankspace');
+            if (space.innerHTML == bs) {
+                space.innerHTML = "";
+            }
+            else {
+                space.innerHTML = ""
+                space.innerHTML = bs;
+            }
+          }
+
+          function getTeam() {
+            var name = "Right now, the only person running this entire web app is Dhilan Shah, a student at Lake Travis High School who watches the Office and eats spaghetti. So \"our team\" is one person (for now)"
+            var space = document.getElementById('secondbs');
+            if (space.innerHTML == name) {
+                space.innerHTML = "";
+            }
+            else {
+                space.innerHTML = name;
+                document.getElementById('blankspace').innerHTML = "";
+                document.getElementByID('bs').innerHTML = "";
+            }
+          }
+        </script>
+        <meta name = "viewport" content = "width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+    </head>
+    
+    <div
+         
+      class="bg-image"
+      style="
+      background-image: url('https://images.pexels.com/photos/1694000/pexels-photo-1694000.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1.webp');
+      height: 100vh;
+      "
+    >
+      
+    <body id = "page-top">
+
+      <!-- Navigation-->
+      <nav class="navbar navbar-expand-lg bg-light navbat-light navbar-static-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand text-dark" href="{% url 'simplify:index'%}">Simplify</a>
+            <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navbarResponsive">
+                <ul class="nav navbar-nav ">
+                    <li class="nav-item "><a class="nav-link " href="about">About</a></li>
+                    {% if user.is_authenticated %}
+                      <li class="nav-item "><a class="nav-link " href="#">Hi {{ user.username }}!</a></li> 
+                      <li class="nav-iten"><a class="nav-link" href="{% url 'logout' %}"> Log Out</a></li>
+                    {% else %}
+                      <li class="nav-item "><a class="nav-link " href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                      <li class="nav-item "><a class="nav-link " href="{% url 'login' %}">Log In</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+      {% block body %}
+      {% endblock %}
+
+    </body>
+
+
+
+    
+
+    
+
+    
+    
+    
+</html>
